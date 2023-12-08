@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\LoginLayout.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\LoginLayout.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.14" />
     <PackageReference Include="MudBlazor" Version="6.11.1" />
   </ItemGroup>
