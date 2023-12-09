@@ -1,3 +1,6 @@
+/* http://localhost:5106 */
+using Chatable.Api.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add SignalR
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -21,5 +27,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<CallHub>("call-hub");
+app.MapHub<RoomHub>("room-hub");
 
 app.Run();
