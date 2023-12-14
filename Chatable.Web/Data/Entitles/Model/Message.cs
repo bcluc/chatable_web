@@ -1,4 +1,4 @@
-﻿namespace Chatable.Web.Data.Entitles
+﻿namespace Chatable.Web.Data.Entitles.Model
 {
     public class Message
     {
