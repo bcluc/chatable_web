@@ -7,6 +7,10 @@ using Supabase.Gotrue;
 using System;
 using System.Text;
 
+/* http://localhost:5106 */
+using Chatable.Api.Hubs;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 var url = "https://hpgymhgysqheiuoetdfu.supabase.co";
@@ -53,6 +57,9 @@ builder.Services.AddAuthorizationBuilder().AddPolicy("owner", p =>
 	p.RequireRole("owner");
 });
 
+// Add SignalR
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -69,5 +76,8 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapHub<CallHub>("call-hub");
+app.MapHub<RoomHub>("room-hub");
 
 app.Run();
