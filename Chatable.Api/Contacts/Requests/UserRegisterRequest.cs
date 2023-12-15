@@ -6,6 +6,10 @@ namespace Chatable.Api.Contacts.Requests
 	{
 		public string? UserName { get; set; }
 		public string? FullName { get; set; }
+		public string? Avatar { get; set; }
+		[DataType(DataType.DateTime)]
+		public DateTime DOB { get; set; }
+		public string Gender { get; set; }
 
 		[Required]
 		[DataType(DataType.Password)]
@@ -18,5 +22,6 @@ namespace Chatable.Api.Contacts.Requests
 		[Display(Name = "Confirm password")]
 		[Compare("Password", ErrorMessage = "The passwords do not match.")]
 		public string? ConfirmPassword { get; set; }
+
 	}
 }
