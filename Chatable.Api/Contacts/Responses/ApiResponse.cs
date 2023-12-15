@@ -1,4 +1,4 @@
-namespace Chatable.Api.Contacts.Responses
+﻿namespace Chatable.Api.Contacts.Responses
 {
     public class ApiResponse
     {
